@@ -41,24 +41,36 @@ export function Autito(cadena) {
                     direccion = 'O'
                 if(movimiento == 'D')
                     direccion = 'E'
+                if(movimiento == 'A')
+                    if(y < y_dim_mat)
+                        y = y + 1
             }
             else if(direccion == 'S'){
                 if(movimiento == 'I')
                     direccion = 'E'
                 if(movimiento == 'D')
                     direccion = 'O'
+                if(movimiento == 'A')
+                    if(y > 0)
+                        y = y -1
             }
             else if(direccion == 'E'){
                 if(movimiento == 'I')
                     direccion = 'N'
                 if(movimiento == 'D')
                     direccion = 'S'
+                if(movimiento == 'A')
+                    if(x < x_dim_mat)
+                        x = x + 1
             }
             else if(direccion == 'O'){
                 if(movimiento == 'I')
                     direccion = 'S'
                 if(movimiento == 'D')
                     direccion = 'N'
+                if(movimiento == 'A')
+                    if(x > 0)
+                        x = x - 1
             }
         });
         //mov = cadenaDividida[2]

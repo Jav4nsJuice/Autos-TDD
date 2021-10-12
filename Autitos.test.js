@@ -21,4 +21,7 @@ describe("Autitos ", () => {
     it("deberia retornar la posicion inicial con la orientación especificada y cambiada por el comando de movimiento", () => {
       expect(Autito("5,5/1,2 N/IDDD")).toEqual("1,2 S");
     });
+    it("deberia retornar la posición actualizada luego de avanzar", () => {
+      expect(Autito("5,5/1,2 N/IAIAIAIAA")).toEqual("1,3 N");
+    });
   });
