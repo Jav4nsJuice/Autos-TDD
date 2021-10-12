@@ -11,16 +11,19 @@ export function Autito(cadena) {
     let y_dim_mat
     let matriz
     let posiciones
+    let resp
 
     cadenaDividida =  cadena.split("/")
     matriz = cadenaDividida[0].split(",")
     x_dim_mat = matriz[0]
     y_dim_mat = matriz[1]
 
-    posiciones = cadenaDividida[1].split(",")
-    if(posiciones[0] != -1){
-        x = parseInt(posiciones[0])
-        y = parseInt(posiciones[1])
+    if(cadenaDividida[1] != undefined){
+        posiciones = cadenaDividida[1].split(",")
+        if(posiciones[0] != -1){
+            x = parseInt(posiciones[0])
+            y = parseInt(posiciones[1])
+        }
     }
 
 
@@ -42,8 +45,10 @@ export function Autito(cadena) {
     //     }
     // });
     
-    if(x_dim_mat == 5 && y_dim_mat == 5)
-        return x,y;
+    if(x_dim_mat == 5 && y_dim_mat == 5){
+        resp = x.toString() + "," + y.toString()
+        return resp;
+    }
 }
 
 // function dividirCadena(cadena, caracter){
