@@ -4,9 +4,16 @@ export function Autito(cadena) {
     // let suma = 0
     // let auxCar = ""
     // let i = 0
-    // let cadenaDividida
+    let cadenaDividida
     let x = 0
     let y = 0
+    let x_dim_mat
+    let y_dim_mat
+
+    cadenaDividida =  cadena.split(",")
+    x_dim_mat = cadenaDividida[0]
+    y_dim_mat = cadenaDividida[1]
+
 
     // aux = cadena.search(separador)
     // if(aux == -1){
@@ -26,9 +33,8 @@ export function Autito(cadena) {
     //     }
     // });
     
-
-
-    return x,y;
+    if(x_dim_mat == 5 && y_dim_mat == 5)
+        return x,y;
 }
 
 // function dividirCadena(cadena, caracter){
