@@ -11,7 +11,7 @@ export function Autito(cadena) {
     let y_dim_mat
     let matriz
     let posiciones
-    let resp
+    let resp, orientacion, direccion
 
     cadenaDividida =  cadena.split("/")
     matriz = cadenaDividida[0].split(",")
@@ -22,7 +22,15 @@ export function Autito(cadena) {
         posiciones = cadenaDividida[1].split(",")
         if(posiciones[0] != -1){
             x = parseInt(posiciones[0])
-            y = parseInt(posiciones[1])
+            
+            orientacion = posiciones[1].split(" ")
+            
+            if(orientacion[1] != undefined){
+            y = parseInt(orientacion[0])
+            direccion = orientacion[1]
+            }
+            else
+                y = parseInt(posiciones[1])
         }
     }
 
@@ -46,7 +54,10 @@ export function Autito(cadena) {
     // });
     
     if(x_dim_mat == 5 && y_dim_mat == 5){
-        resp = x.toString() + "," + y.toString()
+        if(direccion != undefined)
+            resp = x.toString() + "," + y.toString() + " " + direccion
+        else
+            resp = x.toString() + "," + y.toString()
         return resp;
     }
 }
