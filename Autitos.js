@@ -1,9 +1,4 @@
 export function Autito(cadena) {
-    // let separadores = [",","-"]
-    // let aux = 0
-    // let suma = 0
-    // let auxCar = ""
-    // let i = 0
     let cadenaDividida
     let x = 0
     let y = 0
@@ -11,13 +6,16 @@ export function Autito(cadena) {
     let y_dim_mat
     let matriz
     let posiciones
-    let resp, orientacion, direccion
+    let resp, orientacion, direccion, mov
 
     cadenaDividida =  cadena.split("/")
+
+    //Matriz
     matriz = cadenaDividida[0].split(",")
     x_dim_mat = matriz[0]
     y_dim_mat = matriz[1]
 
+    //Posicion inicial y orientacion
     if(cadenaDividida[1] != undefined){
         posiciones = cadenaDividida[1].split(",")
         if(posiciones[0] != -1){
@@ -34,24 +32,16 @@ export function Autito(cadena) {
         }
     }
 
-
-    // aux = cadena.search(separador)
-    // if(aux == -1){
-    //     separadores.push(separador);
-    // }
-
-    // separadores.forEach(function(caracter){
-    //     aux = cadena.search(caracter);
-    //     if(aux != -1){
-    //         auxCar = caracter
-    //         cadenaDividida = dividirCadena(cadena, auxCar)
-    //         for(i in cadenaDividida){
-    //             if(parseInt(cadenaDividida[i],10) < 1000){
-    //                 suma = suma + parseInt(cadenaDividida[i],10)
-    //             }
-    //         }
-    //     }
-    // });
+    //Comando de movimiento
+    if(cadenaDividida[2] != undefined){
+        mov = cadenaDividida[2]
+        if(direccion == 'N'){
+            if(mov == 'I')
+                direccion = 'O'
+            if(mov == 'D')
+                direccion = 'E'
+        }
+    }
     
     if(x_dim_mat == 5 && y_dim_mat == 5){
         if(direccion != undefined)
@@ -61,8 +51,3 @@ export function Autito(cadena) {
         return resp;
     }
 }
-
-// function dividirCadena(cadena, caracter){
-//     let cadenaDividida = cadena.split(caracter)
-//     return cadenaDividida
-// }

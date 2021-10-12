@@ -12,4 +12,7 @@ describe("Autitos ", () => {
     it("deberia retornar la posicion inicial con la orientación especificada en la cadena", () => {
       expect(Autito("5,5/1,2 N")).toEqual("1,2 N");
     });
+    it("deberia retornar la posicion inicial con la orientación especificada y cambiada por el comando de movimiento", () => {
+      expect(Autito("5,5/1,2 N/I")).toEqual("1,2 O");
+    });
   });
