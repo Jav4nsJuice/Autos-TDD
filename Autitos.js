@@ -9,10 +9,19 @@ export function Autito(cadena) {
     let y = 0
     let x_dim_mat
     let y_dim_mat
+    let matriz
+    let posiciones
 
-    cadenaDividida =  cadena.split(",")
-    x_dim_mat = cadenaDividida[0]
-    y_dim_mat = cadenaDividida[1]
+    cadenaDividida =  cadena.split("/")
+    matriz = cadenaDividida[0].split(",")
+    x_dim_mat = matriz[0]
+    y_dim_mat = matriz[1]
+
+    posiciones = cadenaDividida[1].split(",")
+    if(posiciones[0] != -1){
+        x = parseInt(posiciones[0])
+        y = parseInt(posiciones[1])
+    }
 
 
     // aux = cadena.search(separador)
