@@ -6,7 +6,7 @@ export function Autito(cadena) {
     let y_dim_mat
     let matriz
     let posiciones
-    let resp, orientacion, direccion, mov
+    let resp, orientacion, direccion, mov, movimientos
 
     cadenaDividida =  cadena.split("/")
 
@@ -34,13 +34,34 @@ export function Autito(cadena) {
 
     //Comando de movimiento
     if(cadenaDividida[2] != undefined){
-        mov = cadenaDividida[2]
-        if(direccion == 'N'){
-            if(mov == 'I')
-                direccion = 'O'
-            if(mov == 'D')
-                direccion = 'E'
-        }
+        movimientos = cadenaDividida[2].split("")
+        movimientos.forEach(function(movimiento) {
+            if(direccion == 'N'){
+                if(movimiento == 'I')
+                    direccion = 'O'
+                if(movimiento == 'D')
+                    direccion = 'E'
+            }
+            else if(direccion == 'S'){
+                if(movimiento == 'I')
+                    direccion = 'E'
+                if(movimiento == 'D')
+                    direccion = 'O'
+            }
+            else if(direccion == 'E'){
+                if(movimiento == 'I')
+                    direccion = 'N'
+                if(movimiento == 'D')
+                    direccion = 'S'
+            }
+            else if(direccion == 'O'){
+                if(movimiento == 'I')
+                    direccion = 'S'
+                if(movimiento == 'D')
+                    direccion = 'N'
+            }
+        });
+        //mov = cadenaDividida[2]
     }
     
     if(x_dim_mat == 5 && y_dim_mat == 5){

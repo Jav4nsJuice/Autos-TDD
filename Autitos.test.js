@@ -15,4 +15,10 @@ describe("Autitos ", () => {
     it("deberia retornar la posicion inicial con la orientación especificada y cambiada por el comando de movimiento", () => {
       expect(Autito("5,5/1,2 N/I")).toEqual("1,2 O");
     });
+    it("deberia retornar la posicion inicial con la orientación especificada y cambiada por el comando de movimiento", () => {
+      expect(Autito("5,5/1,2 N/III")).toEqual("1,2 E");
+    });
+    it("deberia retornar la posicion inicial con la orientación especificada y cambiada por el comando de movimiento", () => {
+      expect(Autito("5,5/1,2 N/IDDD")).toEqual("1,2 S");
+    });
   });
