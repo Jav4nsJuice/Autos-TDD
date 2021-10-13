@@ -1,26 +1,20 @@
-export function Autito(cadena) {
-    let cadenaDividida
-    let x = 0
-    let y = 0
-    let x_dim_mat
-    let y_dim_mat
-    let matriz
-    let posiciones
-    let resp, orientacion, direccion, mov, movimientos
+const form = document.querySelector("#autito-form");
+const cadena = document.querySelector("#comandos");
+const div = document.querySelector("#resultado-div");
+let x = 0
+let y = 0
+let xIn, yIn
+let comandos
+let x_dim_mat, y_dim_mat
+let matriz, posiciones, resp, orientacion, direccion, movimientos
 
-    cadenaDividida =  cadena.split("/")
-
-    //Matriz
-    matriz = cadenaDividida[0].split(",")
-    x_dim_mat = matriz[0]
-    y_dim_mat = matriz[1]
-
+function posInicialYOrientacion(cadena) {
     //Posicion inicial y orientacion
-    if(cadenaDividida[1] != undefined){
-        posiciones = cadenaDividida[1].split(",")
+    if(cadena != undefined){
+        posiciones = cadena.split(",")
         if(posiciones[0] != -1){
             x = parseInt(posiciones[0])
-            
+            xIn = parseInt(posiciones[0])
             orientacion = posiciones[1].split(" ")
             
             if(orientacion[1] != undefined){
@@ -29,12 +23,15 @@ export function Autito(cadena) {
             }
             else
                 y = parseInt(posiciones[1])
+                yIn = parseInt(posiciones[1])
         }
     }
+}
 
-    //Comando de movimiento
-    if(cadenaDividida[2] != undefined){
-        movimientos = cadenaDividida[2].split("")
+function cambiarDireccion(cadena){
+    if(cadena != undefined){
+        comandos = cadena
+        movimientos = cadena.split("")
         movimientos.forEach(function(movimiento) {
             if(direccion == 'N'){
                 if(movimiento == 'I')
@@ -73,8 +70,23 @@ export function Autito(cadena) {
                         x = x - 1
             }
         });
-        //mov = cadenaDividida[2]
     }
+}
+
+function Autito(cadena) {
+    let cadenaDividida
+    cadenaDividida =  cadena.split("/")
+
+    //Matriz
+    matriz = cadenaDividida[0].split(",")
+    x_dim_mat = matriz[0]
+    y_dim_mat = matriz[1]
+
+    //Posicion inicial y orientacion
+    posInicialYOrientacion(cadenaDividida[1]);
+
+    //Comando de movimiento
+    cambiarDireccion(cadenaDividida[2]);
     
     if(x_dim_mat == 5 && y_dim_mat == 5){
         if(direccion != undefined)
@@ -84,3 +96,12 @@ export function Autito(cadena) {
         return resp;
     }
 }
+
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    
+    Autito(cadena.value);
+    posIn = (cadena.value).split();
+    let resp = "La posicion inicial es: " + xIn + "," + yIn + "<br>" + " Comandos: " + comandos +"<br>" + " La posicion final es: " + x + "," + y 
+    div.innerHTML = "<p>" + resp + "</p>";
+});
