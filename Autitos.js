@@ -6,7 +6,7 @@ let y = 0
 let xIn, yIn
 let comandos
 let x_dim_mat, y_dim_mat
-let matriz, posiciones, resp, orientacion, direccion, movimientos
+let matriz, posiciones, resp, orientacion, direccion, movimientos, dirInicial
 
 function posInicialYOrientacion(cadena) {
     //Posicion inicial y orientacion
@@ -18,8 +18,9 @@ function posInicialYOrientacion(cadena) {
             orientacion = posiciones[1].split(" ")
             
             if(orientacion[1] != undefined){
-            y = parseInt(orientacion[0])
-            direccion = orientacion[1]
+                y = parseInt(orientacion[0])
+                direccion = orientacion[1]
+                dirInicial = orientacion[1]
             }
             else
                 y = parseInt(posiciones[1])
@@ -102,6 +103,6 @@ form.addEventListener("submit", (event) => {
     
     Autito(cadena.value);
     posIn = (cadena.value).split();
-    let resp = "La posicion inicial es: " + xIn + "," + yIn + "<br>" + " Comandos: " + comandos +"<br>" + " La posicion final es: " + x + "," + y 
+    let resp = "La posicion inicial es: " + xIn + "," + yIn + dirInicial + "<br>" + " Comandos: " + comandos +"<br>" + " La posicion final es: " + x + "," + y + direccion
     div.innerHTML = "<p>" + resp + "</p>";
 });
