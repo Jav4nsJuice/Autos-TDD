@@ -42,6 +42,9 @@ function cambiarDireccion(cadena){
                 if(movimiento == 'A')
                     if(y < y_dim_mat)
                         y = y + 1
+                if(movimiento == 'S')
+                    if(y < y_dim_mat)
+                        y = y + 2
             }
             else if(direccion == 'S'){
                 if(movimiento == 'I')
@@ -50,7 +53,10 @@ function cambiarDireccion(cadena){
                     direccion = 'O'
                 if(movimiento == 'A')
                     if(y > 0)
-                        y = y -1
+                        y = y - 1
+                if(movimiento == 'S')
+                    if(y > 0)
+                        y = y - 2
             }
             else if(direccion == 'E'){
                 if(movimiento == 'I')
@@ -60,6 +66,9 @@ function cambiarDireccion(cadena){
                 if(movimiento == 'A')
                     if(x < x_dim_mat)
                         x = x + 1
+                if(movimiento == 'S')
+                    if(x < x_dim_mat)
+                        x = x + 2
             }
             else if(direccion == 'O'){
                 if(movimiento == 'I')
@@ -69,6 +78,9 @@ function cambiarDireccion(cadena){
                 if(movimiento == 'A')
                     if(x > 0)
                         x = x - 1
+                if(movimiento == 'S')
+                    if(x > 0)
+                        x = x - 2
             }
         });
     }

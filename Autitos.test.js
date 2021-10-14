@@ -27,4 +27,7 @@ describe("Autitos ", () => {
     it("deberia retornar la posición actualizada luego de avanzar", () => {
       expect(Autito("5,5/4,3 S/DADAIAAIAIA")).toEqual("2,3 E");
     });
+    it("deberia retornar la posición actualizada luego de saltar", () => {
+      expect(Autito("5,5/1,2 N/IAISIAIA")).toEqual("2,3 E");
+    });
   });
